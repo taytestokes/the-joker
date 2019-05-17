@@ -28,14 +28,14 @@ exports.sendmail = ({ to, subject }) => {
       const { data } = response;
       // store the jome in html format
       const html = `
-        <h1>You have received a new joke from the joker 🃏</h1>
-        <h2>${data.setup}</h2>
+        <h1>🃏 You have received a new joke from the joker 🃏</h1>
         <br />
+        <h2>${data.setup}</h2>
         <h3>${data.punchline}</h3>
       `
       // send mail with defined transport object
       transporter.sendMail({
-        from: `${keys.email}, <foo@example.com>`, // sender address
+        from:keys.email, // sender address
         to,
         subject,
         text: "Another Famous Joke From The Joker 🃏",
