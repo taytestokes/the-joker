@@ -34,7 +34,7 @@ exports.sendmail = ({ to, subject }) => {
       `
       // send mail with defined transport object
       transporter.sendMail({
-        from:keys.email, // sender address
+        from: keys.email, // sender address
         to,
         subject,
         text: "Another Famous Joke From The Joker 🃏",

@@ -15,6 +15,7 @@ console.log(
         })
     )
 );
+console.log(chalk.yellow('Created by Tayte Stokes'));
 
 // Commander Config
 program
