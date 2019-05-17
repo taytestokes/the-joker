@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const nodemailer = require("nodemailer");
-const keys = require("../keys");
+const keys = require("../keys.config");
 const axios = require('axios');
 
 
@@ -23,7 +23,6 @@ exports.sendmail = ({ to, subject }) => {
   axios
     .get(`https://official-joke-api.appspot.com/random_joke`)
     .then(response => {
-      console.log(response.data);
       //destructure the joke
       const { data } = response;
       // store the jome in html format
