@@ -3,13 +3,16 @@ const nodemailer = require("nodemailer");
 const keys = require("../keys");
 const axios = require('axios');
 
+
+
 // function to send mail
-const sendmail = (to, subject) => {
+exports.sendmail = ({ to, subject }) => {
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
-    host: "mail.yahoo.com",
-    port: 587,
-    secure: false,
+    host: "smtp.mail.yahoo.com",
+    port: 465,
+    secure: true,
+    pool: true,
     auth: {
       user: keys.email, // Joke Bot Email
       pass: keys.password // Joke Bot Password
@@ -20,6 +23,7 @@ const sendmail = (to, subject) => {
   axios
     .get(`https://official-joke-api.appspot.com/random_joke`)
     .then(response => {
+      console.log(response.data);
       //destructure the joke
       const { data } = response;
       // store the jome in html format
@@ -41,8 +45,5 @@ const sendmail = (to, subject) => {
     .catch(error => {
       if (error) throw error;
     });
-};
 
-module.exports = {
-  sendmail
 };

@@ -1,2 +1,2 @@
 exports.email = 'jokercli@yahoo.com';
-exports.password = 'clijokerapp';
+exports.password = 'clijokerbot';

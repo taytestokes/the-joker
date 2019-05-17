@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const { prompt } = require('inquirer');
 const emailPrompt = require('./prompts/email');
 const figlet = require('figlet');
+const emailSender = require('./commands/sendemail');
 
 // Initial Connection
 console.clear();
@@ -26,7 +27,7 @@ program
     .alias('new')
     .description('Send a joke to @email')
     .action(() => {
-        prompt(emailPrompt.questions).then()
+        prompt(emailPrompt.questions).then(answers => emailSender.sendmail(answers));
     });
 
 
