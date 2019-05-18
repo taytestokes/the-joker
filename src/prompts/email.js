@@ -1,11 +1,6 @@
 // the questions that will be asked when prompted to send an email
 exports.questions = [
     {
-        type: 'confirm',
-        name: 'confirmation',
-        message: 'Do you allow Joker to access your email account?'
-    },
-    {
         type: 'input',
         name: 'email',
         message: 'Please enter your Yahoo email address'

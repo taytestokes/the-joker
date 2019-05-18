@@ -3,6 +3,7 @@ const program = require('commander');
 const chalk = require('chalk');
 const { prompt } = require('inquirer');
 const emailPrompt = require('./prompts/email');
+const confirmationPrompt = require('./prompts/confirmation');
 const figlet = require('figlet');
 const emailSender = require('./commands/sendemail');
 
@@ -31,7 +32,17 @@ program
     .alias('n')
     .description('Send a joke to @email')
     .action(() => {
-        prompt(emailPrompt.questions).then(answers => emailSender.checkAuth(answers));
+        prompt(confirmationPrompt.question)
+            .then(answer => {
+                if (!answer.confirmation) {
+                    console.log(chalk.red('Hey, maybe next time!'))
+                } else {
+                    prompt(emailPrompt.questions)
+                        .then(answers => {
+                            emailSender.sendmail(answers);
+                        });
+                }
+            });
     });
 
 program
@@ -44,6 +55,6 @@ program
             chalk.green('Password: clijokerbot')
         );
     });
-    
+
 // Parse The Arguments
 program.parse(process.argv);
