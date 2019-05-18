@@ -18,11 +18,11 @@ console.log(
     )
 );
 console.log(chalk.green('Thank you for using my app and have fun sending jokes!'))
-console.log(chalk.yellow('Version: 1.0.6'))
+console.log(chalk.yellow('Version: 1.0.7'))
 
 // Commander Config
 program
-    .version('1.0.6')
+    .version('1.0.7')
     .description(chalk.yellow('A CLI Application To Send Emails With Random Jokes'))
     .option('-g, --github', 'output a link to the github repository')
 
