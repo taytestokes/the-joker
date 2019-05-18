@@ -46,11 +46,9 @@ exports.sendmail = ({ emailTo, subject }) => {
         console.log(chalk.red('Sorry, that is not a valid email.'));
       };
     })
-    .then(() => console.log(chalk.cyan('Joke Sent Successfully!')))
     .catch(error => {
       // check for errors
       if (error) throw error;
       console.log(chalk.red('Sorry, but something went wrong... please try again!'));
     });
-
 };

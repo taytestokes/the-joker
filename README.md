@@ -12,8 +12,9 @@ $ npm install -g the-joker
 
 ## Usage
 
-```javascript
-
+In the command line, run:
+```bash
+$ joker new
 ```
 
 ## Contributing
