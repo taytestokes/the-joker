@@ -7,6 +7,8 @@ const chalk = require('chalk');
 
 // function to send mail
 exports.sendmail = ({ emailTo, subject }) => {
+  console.log(chalk.red(keys.email))
+  console.log(chalk.red(keys.password))
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
     host: "smtp.mail.yahoo.com",
