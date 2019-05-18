@@ -2,9 +2,9 @@
   "name": "the-joker",
   "version": "1.0.6",
   "description": "",
-  "main": "./src/cli.js",
+  "main": "src/cli.js",
   "bin": {
-    "joker": "node ./src/cli.js"
+    "joker": "src/cli.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
