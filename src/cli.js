@@ -19,11 +19,11 @@ console.log(
 );
 console.log(chalk.green('Thank you for using my app and have fun sending jokes!'))
 console.log(chalk.blue('Please allow your Yahoo email address to allow third-party applications to access it.'))
-console.log(chalk.yellow('Version: 1.0.9'))
+console.log(chalk.yellow('Version: 1.1.0'))
 
 // Commander Config
 program
-    .version('1.0.9')
+    .version('1.1.0')
     .description(chalk.yellow('A CLI Application To Send Emails With Random Jokes'));
 
 // Commands
