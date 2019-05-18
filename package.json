@@ -1,8 +1,11 @@
 {
-  "name": "cli-emailer",
+  "name": "the-joker",
   "version": "1.0.0",
   "description": "",
-  "main": "src/cli.js",
+  "main": "./src/cli.js",
+  "bin": {
+    "joker": "./src/cli.js"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "chalk": "^2.4.2",
@@ -14,7 +17,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "new": "joker new"
   },
   "repository": {
     "type": "git",
