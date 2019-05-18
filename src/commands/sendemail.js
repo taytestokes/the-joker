@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 const nodemailer = require("nodemailer");
-const keys = require("../keys.config");
 const axios = require('axios');
 const emailValidater = require('email-validator');
 const chalk = require('chalk');
 
 // function to send mail
-exports.sendmail = ({confirmation, email, password, emailTo, subject }) => {
+const sendmail = (email, password, emailTo, subject ) => {
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
     host: "smtp.mail.yahoo.com",
@@ -14,8 +13,8 @@ exports.sendmail = ({confirmation, email, password, emailTo, subject }) => {
     secure: true,
     pool: true,
     auth: {
-      user: process.env.EMAIL, // Joke Bot Email
-      pass: process.env.PASSWORD // Joke Bot Password
+      user: email,
+      pass: password
     }
   });
 
@@ -36,7 +35,7 @@ exports.sendmail = ({confirmation, email, password, emailTo, subject }) => {
       if (emailValidater.validate(emailTo)) {
         // send mail with defined transport object
         transporter.sendMail({
-          from: keys.email,
+          from: email,
           to: emailTo,
           subject,
           text: "Another Famous Joke From The Joker 🃏",
@@ -52,3 +51,9 @@ exports.sendmail = ({confirmation, email, password, emailTo, subject }) => {
       console.log(chalk.red('Sorry, but something went wrong... please try again!'));
     });
 };
+
+exports.checkAuth = ({confirmation, email, password, emailTo, subject}) => {
+  console.log(confirmation);
+  //send the email
+  sendmail(email, password, emailTo, subject);
+}

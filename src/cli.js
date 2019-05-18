@@ -7,7 +7,6 @@ const figlet = require('figlet');
 const emailSender = require('./commands/sendemail');
 
 // Initial Connection
-// these will log to create the banner of the app
 console.clear();
 console.log(
     chalk.magenta(
@@ -18,13 +17,13 @@ console.log(
     )
 );
 console.log(chalk.green('Thank you for using my app and have fun sending jokes!'))
+console.log(chalk.blue('Please allow your Yahoo email address to allow third-party applications to access it.'))
 console.log(chalk.yellow('Version: 1.0.9'))
 
 // Commander Config
 program
     .version('1.0.9')
-    .description(chalk.yellow('A CLI Application To Send Emails With Random Jokes'))
-    .option('-g, --github', 'output a link to the github repository')
+    .description(chalk.yellow('A CLI Application To Send Emails With Random Jokes'));
 
 // Commands
 program
@@ -32,14 +31,19 @@ program
     .alias('n')
     .description('Send a joke to @email')
     .action(() => {
-        prompt(emailPrompt.questions).then(answers => emailSender.sendmail(answers));
+        prompt(emailPrompt.questions).then(answers => emailSender.checkAuth(answers));
     });
 
 program
-    .command('--github')
-    .alias('-g')
-    .description('Will log a link to the github repository')
-    .action(chalk.cyan(console.log('https://github.com/Tstokes9328/the-joker-cli')));
-
+    .command('test')
+    .alias('t')
+    .description('Test account details')
+    .action(() => {
+        console.log(
+            chalk.green('Email: jokercli@yahoo.com'),
+            chalk.green('Password: clijokerbot')
+        );
+    });
+    
 // Parse The Arguments
 program.parse(process.argv);
