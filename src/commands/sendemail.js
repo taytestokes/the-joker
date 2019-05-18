@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require('dotenv').config;
 const nodemailer = require("nodemailer");
 const keys = require("../keys.config");
 const axios = require('axios');
@@ -16,8 +17,8 @@ exports.sendmail = ({ emailTo, subject }) => {
     secure: true,
     pool: true,
     auth: {
-      user: keys.email, // Joke Bot Email
-      pass: keys.password // Joke Bot Password
+      user: process.env.EMAIL, // Joke Bot Email
+      pass: process.env.PASSWORD // Joke Bot Password
     }
   });
 
