@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const program = require('commander');
 const chalk = require('chalk');
 const { prompt } = require('inquirer');
@@ -6,6 +7,7 @@ const figlet = require('figlet');
 const emailSender = require('./commands/sendemail');
 
 // Initial Connection
+    // these will log to create the banner of the app
 console.clear();
 console.log(
     chalk.magenta(
@@ -15,7 +17,7 @@ console.log(
         })
     )
 );
-console.log(chalk.yellow('Created by Tayte Stokes'));
+console.log(chalk.green('Thank you for using my app and have fun sending jokes!'))
 
 // Commander Config
 program
@@ -24,8 +26,8 @@ program
 
 // Commands
 program
-    .command('send joke')
-    .alias('new')
+    .command('joker new')
+    .alias('jn')
     .description('Send a joke to @email')
     .action(() => {
         prompt(emailPrompt.questions).then(answers => emailSender.sendmail(answers));

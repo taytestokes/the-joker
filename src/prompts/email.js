@@ -2,7 +2,7 @@
 exports.questions = [
     {
         type: 'input',
-        name: 'to',
+        name: 'emailTo',
         message: 'Please enter the @email you would like to joke'
     },
     {
