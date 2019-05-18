@@ -2,7 +2,7 @@
   "name": "cli-emailer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/cli.js",
   "dependencies": {
     "axios": "^0.18.0",
     "chalk": "^2.4.2",
