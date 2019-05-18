@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-require('dotenv').config;
 const nodemailer = require("nodemailer");
 const keys = require("../keys.config");
 const axios = require('axios');
@@ -7,9 +6,7 @@ const emailValidater = require('email-validator');
 const chalk = require('chalk');
 
 // function to send mail
-exports.sendmail = ({ emailTo, subject }) => {
-  console.log(chalk.red(keys.email))
-  console.log(chalk.red(keys.password))
+exports.sendmail = ({confirmation, email, password, emailTo, subject }) => {
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
     host: "smtp.mail.yahoo.com",
