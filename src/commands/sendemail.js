@@ -27,10 +27,10 @@ exports.sendmail = ({ emailTo, subject }) => {
       const { data } = response;
       // store the jome in html format
       const html = `
-        <h1>🃏 You have received a new joke from the joker 🃏</h1>
+        <h3>🃏 You have received a new joke from the joker 🃏</h3>
         <br />
-        <h2>${data.setup}</h2>
-        <h3>${data.punchline}</h3>
+        <h4>${data.setup}</h4>
+        <h5>${data.punchline}</h5>
       `
       // check to see if the entered email is an email
       if (emailValidater.validate(emailTo)) {
