@@ -5,7 +5,7 @@ const emailValidater = require('email-validator');
 const chalk = require('chalk');
 
 // function to send mail
-exports.sendmail = (email, password, emailTo, subject ) => {
+exports.sendmail = ({ email, password, emailTo, subject }) => {
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
     host: "smtp.mail.yahoo.com",
