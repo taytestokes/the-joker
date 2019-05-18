@@ -42,11 +42,11 @@ exports.sendmail = ({ emailTo, subject }) => {
           text: "Another Famous Joke From The Joker 🃏",
           html
         });
-        console.log(chalk.cyan('Joke sent!'));
       } else {
         console.log(chalk.red('Sorry, that is not a valid email.'));
       };
     })
+    .then(() => console.log(chalk.cyan('Joke Sent Successfully!')))
     .catch(error => {
       // check for errors
       if (error) throw error;
