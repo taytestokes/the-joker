@@ -1,6 +1,9 @@
 # The Joker CLI Application
 
-The Joker is a CLI Application to send a random joke through email. 🃏
+🃏 The Joker is a CLI Application to send a random joke using your Yahoo email. 🃏
+
+**Note:** To use your own Yahoo email account, you will need to allow third-party applications to access your account in the settings menu of your Yahoo email account.
+
 
 ## Installation
 
